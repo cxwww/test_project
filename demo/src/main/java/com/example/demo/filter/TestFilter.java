@@ -18,7 +18,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.StringUtils;
 
 
-@Order(1)
+@Order(2)
 @WebFilter(filterName="testFilter", urlPatterns="/data/shop/*")
 public class TestFilter implements Filter{
 
@@ -41,13 +41,15 @@ public class TestFilter implements Filter{
 		//checkToken
 		String username = (String) session.getAttribute("username");
 		String sessionId = session.getId();
-		if(StringUtils.isEmpty(username) || StringUtils.isEmpty(sessionId)) {
-			response.getWriter().write("username or sessionId is null");
-			response.sendRedirect("/login.jsp");
-			if(!response.isCommitted())
-				filterChain.doFilter(srequest, sresponse);
-			return;
-		}
+		
+		//tokenFilter
+//		if(StringUtils.isEmpty(username) || StringUtils.isEmpty(sessionId)) {
+//			response.getWriter().write("username or sessionId is null");
+//			response.sendRedirect("/login.jsp");
+//			if(!response.isCommitted())
+//				filterChain.doFilter(srequest, sresponse);
+//			return;
+//		}
 		String tokenP = request.getParameter("token");
 //		String token = RedisUtils.getTokenFromRedis(username+"_"+sessionId);
 		//for test
