@@ -1,8 +1,5 @@
 package com.example.demo.domain;
 
-import org.springframework.util.StringUtils;
-
-
 public class TokenRequestParam {
 	
 	//有赞云颁发给开发者的应用ID

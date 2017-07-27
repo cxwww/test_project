@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.domain.TokenRequestParam;
 import com.example.demo.domain.TokenResponseInfo;
+import com.example.demo.util.TokenUtils;
 
 @RestController
 public class TokenController {
@@ -45,7 +46,12 @@ public class TokenController {
 	@RequestMapping(value="/data/tokenC", method={RequestMethod.GET, RequestMethod.POST})
 	public String getTokenC(@RequestBody(required=true) TokenRequestParam rp, @RequestParam(required=true) String username,HttpSession httpSession) {
 		if(httpSession==null) return null;
-		String value = rp.getClient_id()+"."+rp.getClient_secret()+"."+rp.getGrant_type()+"."+rp.getKdt_id();
+		String value = null;
+		try {
+			value = TokenUtils.createToken(null, rp);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		String key = username+"_"+httpSession.getId();
 		srt.opsForValue().set(key, value,6,TimeUnit.SECONDS);
 		System.out.println("value:"+srt.opsForValue().get(key));
