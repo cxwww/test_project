@@ -16,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.domain.TokenRequestParam;
 import com.example.demo.domain.TokenResponseInfo;
-import com.example.demo.util.TokenUtils;
 
 @RestController
 public class TokenController {
@@ -48,7 +47,7 @@ public class TokenController {
 		if(httpSession==null) return null;
 		String value = null;
 		try {
-			value = TokenUtils.createToken(null, rp);
+//			value = TokenUtils.createToken(null, rp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
