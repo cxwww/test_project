@@ -17,8 +17,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.util.StringUtils;
 
 
-@Order(1)
-@WebFilter(filterName="TokenFilter", urlPatterns="/data/tokenC/*")
+//@Order(1)
+//@WebFilter(filterName="TokenFilter", urlPatterns="/data/tokenC/*")
 public class TokenFilter implements Filter{
 
 	@Override

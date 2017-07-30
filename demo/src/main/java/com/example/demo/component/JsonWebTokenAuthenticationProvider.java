@@ -11,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
+import org.springframework.stereotype.Component;
 
 import com.example.demo.domain.AuthTokenDetailsDTO;
 import com.example.demo.util.JsonWebTokenUtility;
@@ -19,6 +20,8 @@ import com.example.demo.util.JsonWebTokenUtility;
  * 需要一个授权提供者读取这个记号，然偶验证它，然后转换为我们自己的定制授权对象
  *
  */
+
+@Component
 public class JsonWebTokenAuthenticationProvider implements AuthenticationProvider{
 	
 	private JsonWebTokenUtility tokenService = new JsonWebTokenUtility();

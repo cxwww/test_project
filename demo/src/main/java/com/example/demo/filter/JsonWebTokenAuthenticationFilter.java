@@ -3,7 +3,10 @@ package com.example.demo.filter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.web.authentication.preauth.RequestHeaderAuthenticationFilter;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class JsonWebTokenAuthenticationFilter extends RequestHeaderAuthenticationFilter {
 	
 	public JsonWebTokenAuthenticationFilter() {

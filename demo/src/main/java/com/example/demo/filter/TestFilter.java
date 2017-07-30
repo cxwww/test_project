@@ -18,8 +18,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.StringUtils;
 
 
-@Order(2)
-@WebFilter(filterName="testFilter", urlPatterns="/data/shop/*")
+//@Order(2)
+//@WebFilter(filterName="testFilter", urlPatterns="/data/shop/*")
 public class TestFilter implements Filter{
 
 	@Override
