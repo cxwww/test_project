@@ -46,7 +46,7 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
 			 if (manager.checkToken(key, token)) {
 				 return true;
 			 }
-			 
+			 response.getWriter().write("no authorization");
 			 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			 return false;
 		 }
