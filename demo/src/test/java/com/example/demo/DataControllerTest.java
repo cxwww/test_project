@@ -20,8 +20,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo.domain.TokenRequestParam;
 import com.example.demo.filter.TestFilter;
+import com.example.demo.token.domain.TokenRequestParam;
 import com.example.demo.util.RedisUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
