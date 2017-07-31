@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -47,7 +46,8 @@ public class TokenController {
 	@TokenAuthorization
 	@RequestMapping(value="/data/tokenC", method=RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity getTokenC(@RequestBody(required=true) TokenRequestParam rp,HttpSession httpSession) {
-		String key = rp.getUsername()+"_"+httpSession.getId();
+//		String key = rp.getUsername()+"_"+httpSession.getId();
+		String key = rp.getUsername();
         TokenModel model = tokenManager.createToken(key);
         return new ResponseEntity<>(model, HttpStatus.OK);
 	}
