@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,17 @@ public class UserService {
 //	    Sort sort = new Sort(Direction.DESC, "id");
 //	    Pageable pageable = new PageRequest(page, size, sort);
 		return userRepository.findAll(new PageModel());
+	}
+	
+	@Transactional
+	public void update(User user) {
+		userRepository.updateUserStatus(user.getId(), user.getStatus());
+	}
+	
+	@Transactional
+	public void testTransactional(User user) {
+		update(user);
+		throw new TestTransactionalException("test transactional");
 	}
 	
 }

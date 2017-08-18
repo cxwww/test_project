@@ -44,6 +44,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	@Query("update User u set u.status = ?2 where u.id = ?1")
 	void updateUserStatus(int id, int status);
 	
+	
 	@Query("select count(*) from User where name = ?1")
 	long countByName(String name);
 }
